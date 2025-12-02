@@ -15,9 +15,18 @@ dependencies = [
     "fastapi (>=0.121.3,<0.122.0)",
     "uvicorn (>=0.38.0,<0.39.0)",
     "python-jose[cryptography] (>=3.5.0,<4.0.0)",
-    "passlib[bcrypt] (>=1.7.4,<2.0.0)"
+    "passlib[bcrypt] (>=1.7.4,<2.0.0)",
+    "python-dotenv (>=1.0.0,<2.0.0)",
+    "alembic (>=1.14.0,<2.0.0)"
 ]
 
+[tool.poetry]
+name = "book-api"
+version = "0.1.0"
+description = "FIAP - Tech challenge - 8MLET"
+authors = ["ricsandrini@gmail.com"]
+readme = "README.md"
+packages = [{include = "app", from = "."}]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

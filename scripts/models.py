@@ -1,3 +1,4 @@
+# app/models.py
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship, declarative_base
 
@@ -17,9 +18,10 @@ class Book(Base):
     __tablename__ = "books"
 
     id = Column(Integer, primary_key=True, index=True)
+    upc = Column(String, unique=True, nullable=False)
     title = Column(String, nullable=False)
     price = Column(Float, nullable=False)
-    rating = Column(String, nullable=False)
+    rating = Column(String, nullable=False)  # Storing as string: "One", "Two", etc.
     availability = Column(String, nullable=False)
     image_url = Column(String, nullable=True)
 
