@@ -1,8 +1,8 @@
 # app/api/endpoints/stats.py
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.database import get_db
-from app import crud, schemas
+from scripts.database import get_db
+from scripts import crud, schemas
 
 router = APIRouter()
 

@@ -1,6 +1,5 @@
-# app/main.py
 from fastapi import FastAPI
-from api.routes import books, categories, health, stats, books_advanced
+from api.routes import books, categories, health, stats
 from scripts.database import init_db
 import os
 
@@ -20,7 +19,6 @@ app.include_router(books.router, prefix="/api/v1/books", tags=["books"])
 app.include_router(categories.router, prefix="/api/v1/categories", tags=["categories"])
 app.include_router(health.router, prefix="/api/v1/health", tags=["health"])
 app.include_router(stats.router, prefix="/api/v1/stats", tags=["stats"])
-app.include_router(books_advanced.router, prefix="/api/v1/books", tags=["books"])
 
 @app.get("/")
 def root():
