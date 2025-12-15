@@ -13,7 +13,7 @@ class BookBase(BaseModel):
     upc: str
     title: str
     price: float
-    rating: str
+    rating: int
     availability: str
     image_url: Optional[str]
 
@@ -36,3 +36,21 @@ class CategoryStats(BaseModel):
     category: str
     book_count: int
     average_price: float
+
+# Authentication schemas
+class Token(BaseModel):
+    access_token: str
+    refresh_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    username: Optional[str] = None
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str
+
+class ScrapingResponse(BaseModel):
+    status: str
+    message: str
+    books_added: Optional[int] = None
+    books_skipped: Optional[int] = None

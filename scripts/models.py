@@ -20,7 +20,7 @@ class Book(Base):
     upc = Column(String, unique=True, nullable=False)
     title = Column(String, nullable=False)
     price = Column(Float, nullable=False)
-    rating = Column(String, nullable=False)  # Storing as string: "One", "Two", etc.
+    rating = Column(Integer, nullable=False)
     availability = Column(String, nullable=False)
     image_url = Column(String, nullable=True)
 

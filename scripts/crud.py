@@ -20,11 +20,11 @@ def get_categories(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Category).offset(skip).limit(limit).all()
 
 def get_stats_overview(db: Session):
-    total_books = db.query(func.count(models.Book.id)).scalar()
+    total_books = db.query(func.count(models.Book.upc)).scalar()
     average_price = db.query(func.avg(models.Book.price)).scalar()
     rating_distribution = db.query(
         models.Book.rating, 
-        func.count(models.Book.id)
+        func.count(models.Book.upc)
     ).group_by(models.Book.rating).all()
     
     return {

@@ -42,7 +42,14 @@ def scrape_book_detail(book_url: str):
         
         # Rating
         rating_element = soup.select_one("p.star-rating")
-        rating = rating_element["class"][1] if rating_element else "Zero"
+        rating_str = rating_element["class"][1] if rating_element else "Zero"
+        match rating_str:
+            case "One": rating = 1
+            case "Two": rating = 2
+            case "Three": rating = 3
+            case "Four": rating = 4
+            case "Five": rating = 5
+            case _: rating = 0
         
         # Availability
         availability_element = soup.select_one("p.instock.availability")

@@ -17,7 +17,9 @@ dependencies = [
     "python-jose[cryptography] (>=3.5.0,<4.0.0)",
     "passlib[bcrypt] (>=1.7.4,<2.0.0)",
     "python-dotenv (>=1.0.0,<2.0.0)",
-    "alembic (>=1.14.0,<2.0.0)"
+    "alembic (>=1.14.0,<2.0.0)",
+    "python-multipart (>=0.0.6,<0.0.7)",  # Added for form data
+    "bcrypt (==4.2.0)"
 ]
 
 [tool.poetry]
