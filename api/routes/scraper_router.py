@@ -1,11 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
-from sqlalchemy.orm import Session
-from scripts.database import get_db
 from scripts import schemas
 from scripts.auth import get_current_user
-import subprocess
-import sys
-import threading
 from typing import Dict, Any
 
 router = APIRouter()

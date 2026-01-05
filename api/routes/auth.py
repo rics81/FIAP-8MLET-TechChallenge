@@ -21,8 +21,8 @@ async def login_for_access_token(
     """
     Authenticate user and return JWT tokens
     
-    - **username**: admin (default)
-    - **password**: secret (default)
+    - **username**: ask for system administyrator
+    - **password**: ask for system administyrator
     """
     user = authenticate_user(form_data.username, form_data.password)
     if not user:

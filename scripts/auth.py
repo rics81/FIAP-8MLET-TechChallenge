@@ -4,9 +4,6 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from sqlalchemy.orm import Session
-from scripts.database import get_db
-from scripts import models
 import os
 from dotenv import load_dotenv
 
