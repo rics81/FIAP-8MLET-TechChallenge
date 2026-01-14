@@ -1,6 +1,13 @@
 # FIAP-8MLET-TechChallenge
 Criação de uma API Pública para Consulta de Livros
 
+## Link do deploy
+http://techchallenge.ddns.net:8000/
+Favor avisar antes de avaliar pois a vm permanece desligada quando não esta sendo usada.
+
+## Link do vídeo
+https://drive.google.com/file/d/12mCtSbBZ4kpggHY-_4XXW3-WbiH4zGOc/view?usp=sharing
+
 # Book API - Documentação
 ## Descrição
 Este projeto é uma API REST desenvolvida em FastAPI para consulta e gerenciamento de dados de livros extraídos do site books.toscrape.com. A aplicação permite:
@@ -12,46 +19,34 @@ Este projeto é uma API REST desenvolvida em FastAPI para consulta e gerenciamen
 
 # Arquitetura do Sistema
 ## Estrutura de Pastas
-book_api
+book_api/
+├── api/                          # Camada de apresentação (FastAPI)
+│   ├── routes/                   # Endpoints organizados por módulo
+│   │   ├── auth.py              # Rotas de autenticação
+│   │   ├── books.py             # Rotas de livros
+│   │   ├── categories.py        # Rotas de categorias
+│   │   ├── health.py            # Health checks
+│   │   ├── scraper_router.py    # Rotas de scraping
+│   │   └── stats.py             # Rotas de estatísticas
+│   └── main.py                  # Aplicação FastAPI principal
 │
-📁 api/              # FastAPI layer
-├── 📁 routes/       # API endpoints
-│   ├── 🔐 auth.py
-│   ├── 📚 books.py
-│   ├── 📂 categories.py
-│   ├── 🩺 health.py
-│   ├── 🕷️ scraper_router.py
-│   └── 📊 stats.py
-└── 🚀 main.py       # Main app
+├── scripts/                      # Lógica de negócio e persistência
+│   ├── auth.py                  # Autenticação e JWT
+│   ├── crud.py                  # Operações de banco de dados
+│   ├── database.py              # Configuração do banco
+│   ├── models.py                # Modelos SQLAlchemy
+│   ├── schemas.py               # Schemas Pydantic
+│   └── scraper.py               # Web scraping
 │
-📁 scripts/          # Business logic
-├── 🔐 auth.py
-├── 💾 crud.py
-├── 🗄️ database.py
-├── 🗂️ models.py
-├── 📋 schemas.py
-└── 🕷️ scraper.py
-│
-📁 alembic/          # Database migrations
-📁 tests/            # Tests
-📄 pyproject.toml    # Dependencies
+├── alembic/                      # Migrações de banco de dados
+├── tests/                        # Testes automatizados
+└── pyproject.toml               # Dependências com Poetry
 
-## Fluxo de Dados (Mermaid)
-https://mermaid.live/edit#pako:eNpNks-O2jAQxl_FmlMrZVEgCX9yqARJWWDZLgW2hzoc3GQK1hI7sp1VuywPU_XQB-HFapxsVR8sz_y-z2OPfYJcFggx7BWrDmSbZoLYMabJkaMwSGbb7WpHbm4-kAmdMm3GqzlZy9qg2jXSiYPJaWxzwvCcXf5cfstzA5MrfP1y-XXkBXslKZ3UmgvUmizlnue7_1Vz8fym-0hDv0seBavNQSr-gkWrTF2xKU3Wjyl5qFAxw6XQLZ06ekvfraQ2e4Wbz8v3Lbp1aEbXqCtrQLLYPHxq2cyxcRM085xuctsQe0nHFvSblE-6Y6R26U4uy9a8cII7umJKX7t1v2zBXXMY8GxreQGxUTV6UKIq2TWE01WWgTlgiRnEdlkw9ZRBJs7WUzHxVcryzaZkvT9A_J0dtY3qqmAGU87so5X_sgpFgSqRtTAQ9wK3B8Qn-GGj3qgzDIZdPwr6_UE3iPoe_IQ48jvBIBwNQj8c-aN-L4zOHry4sn5nOIg8wIIbqe6bL-J-yvkvC2arvg
+## Pipeline
+https://www.mermaidchart.com/d/0ba752fb-f731-4d33-91df-c9d91278babc
 
-graph TD
-    A[Cliente HTTP] --> B[FastAPI Router]
-    B --> C{Autenticação}
-    C -->|Válida| D[Business Logic]
-    C -->|Inválida| E[401 Unauthorized]
-    D --> F[CRUD Operations]
-    F --> G[(PostgreSQL)]
-    G --> H[Response JSON]
-    H --> A
-    
-    I[Scraper] --> J[books.toscrape.com]
-    J --> K[Parse HTML]
-    K --> G
+## Diagrama (arquitetura) visual do projeto
+https://www.mermaidchart.com/d/95904e01-b8c9-4ef6-adde-25b570f53f51
 
 ## Tecnologias Utilizadas
 - FastAPI: Framework web moderno e rápido
