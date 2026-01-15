@@ -6,7 +6,7 @@ http://techchallenge.ddns.net:8000/
 Favor avisar antes de avaliar pois a vm permanece desligada quando não esta sendo usada.
 
 ## Link do vídeo
-https://drive.google.com/file/d/12mCtSbBZ4kpggHY-_4XXW3-WbiH4zGOc/view?usp=sharing
+https://drive.google.com/file/d/11sep-9xJGjxsgn4tIPmPMPJhZvGWzRNm/view?usp=sharing
 
 # Book API - Documentação
 ## Descrição
@@ -20,8 +20,8 @@ Este projeto é uma API REST desenvolvida em FastAPI para consulta e gerenciamen
 # Arquitetura do Sistema
 ## Estrutura de Pastas
 book_api/
-├── api/                          # Camada de apresentação (FastAPI)
-│   ├── routes/                   # Endpoints organizados por módulo
+├── api/                         # Camada de apresentação (FastAPI)
+│   ├── routes/                  # Endpoints organizados por módulo
 │   │   ├── auth.py              # Rotas de autenticação
 │   │   ├── books.py             # Rotas de livros
 │   │   ├── categories.py        # Rotas de categorias
@@ -30,7 +30,7 @@ book_api/
 │   │   └── stats.py             # Rotas de estatísticas
 │   └── main.py                  # Aplicação FastAPI principal
 │
-├── scripts/                      # Lógica de negócio e persistência
+├── scripts/                     # Lógica de negócio e persistência
 │   ├── auth.py                  # Autenticação e JWT
 │   ├── crud.py                  # Operações de banco de dados
 │   ├── database.py              # Configuração do banco
@@ -38,8 +38,8 @@ book_api/
 │   ├── schemas.py               # Schemas Pydantic
 │   └── scraper.py               # Web scraping
 │
-├── alembic/                      # Migrações de banco de dados
-├── tests/                        # Testes automatizados
+├── alembic/                     # Migrações de banco de dados
+├── tests/                       # Testes automatizados
 └── pyproject.toml               # Dependências com Poetry
 
 ## Pipeline
